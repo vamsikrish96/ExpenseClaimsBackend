@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.middleware.error_handler import setup_error_handlers
 from app.config import settings
 from app.schemas.response import SuccessResponse
+from app.routers import auth
 
 logging.basicConfig(
     level=logging.INFO,
@@ -26,6 +27,7 @@ app.add_middleware(
 )
 
 setup_error_handlers(app)
+app.include_router(auth.router)
 
 
 @app.get("/health", tags=["health"])
