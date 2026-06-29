@@ -2,7 +2,6 @@
 
 from enum import Enum
 from typing import Optional
-from uuid import UUID, uuid4
 
 
 class UserRole(str, Enum):
